@@ -5,6 +5,7 @@ A new Flutter project.
 ## Palavras-chave
 Aula 1 = Alura
 Aula 2 = Widgets
+Aula 3 = Guia de mergulho
 
 ## Getting Started
 

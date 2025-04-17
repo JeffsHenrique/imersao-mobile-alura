@@ -1,3 +1,5 @@
+import 'package:myapp/model/dish.dart';
+
 class Restaurant {
   String id;
   String imagePath;
@@ -6,6 +8,7 @@ class Restaurant {
   double stars;
   int distance;
   List<String> categories;
+  List<Dish> dishes = [];
 
   Restaurant({
     required this.id,
@@ -15,6 +18,7 @@ class Restaurant {
     required this.stars,
     required this.distance,
     required this.categories,
+    required this.dishes,
   });
 
   Map<String, dynamic> toMap() {
@@ -26,18 +30,20 @@ class Restaurant {
       'stars': stars,
       'distance': distance,
       'categories': categories,
+      'dishes': dishes.map((dish) => dish.toMap()).toList(),
     };
   }
 
   factory Restaurant.fromMap(Map<String, dynamic> map) {
     return Restaurant(
-      id: map['id'],
-      imagePath: map['imagePath'],
-      name: map['name'],
-      description: map['description'],
-      stars: map['stars'],
-      distance: map['distance'],
-      categories: map['categories'],
+      id: map['id'] as String,
+      imagePath: map['imagePath'] as String,
+      name: map['name'] as String,
+      description: map['description'] as String,
+      stars: map['stars'] as double,
+      distance: map['distance'] as int,
+      categories: List<String>.from(map['categories']),
+      dishes: List<Dish>.from(map['dishes'].map((dish) => Dish.fromMap(dish))),
     );
   }
 

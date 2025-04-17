@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:myapp/model/restaurant.dart';
 
-class RestaurantsData extends ChangeNotifier {
+class RestaurantData extends ChangeNotifier {
   List<Restaurant> listRestaurant = [];
 
   Future<void> getRestaurants() async {
